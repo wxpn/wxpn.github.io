@@ -19,7 +19,7 @@ platforms:
     link: https://www.linkedin.com/in/aswingopalakrishnan/
 
 navigation:
-  - name: About Me
+  - name: About Us
     link: /index.html
   - name: Active Directory
     link: /ActiveDirectory.html
