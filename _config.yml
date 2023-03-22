@@ -23,6 +23,6 @@ navigation:
     link: ./index.html
   - name: Malware Development
     sublist:
-      - name: Image
+      - name: Hiding malware within an Image
         link: ./docs/malware.html
     link: ./new-page.html
