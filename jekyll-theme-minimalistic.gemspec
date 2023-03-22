@@ -4,11 +4,9 @@ Gem::Specification.new do |s|
   s.name          = "jekyll-theme-minimalistic"
   s.version       = "0.4.2"
   s.license       = "GPL-3.0"
-  s.authors       = ["Vaibhav Vikas", "GitHub, Inc."]
-  s.email         = ["vbhvvikas@gmail.com"]
-  s.homepage      = "https://github.com/vaibhavvikas/jekyll-theme-minimalistic"
-  s.summary       = "Minimalistic is a Jekyll theme for GitHub Pages"
-
+  s.authors       = ["WXPN", "GitHub, Inc."]
+  s.email         = ["wxpn@gmail.com"]
+  s.homepage      = "https://github.com/wxpn"
   s.files         = `git ls-files -z`.split("\x0").select do |f|
     f.match(%r{^((_includes|_layouts|_sass|assets)/|(LICENSE|README)((\.(txt|md|markdown)|$)))}i)
   end
