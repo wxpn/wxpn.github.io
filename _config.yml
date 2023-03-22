@@ -21,10 +21,7 @@ platforms:
 navigation:
   - name: Readme
     link: ./index.html
-    sublist:
-      - name: Image
-        link: ./index.html#small-image
   - name: Another Page
     link: ./another-page.html
   - name: New Page
-    line: ./newpage.html
+    line: ./new-page.html
