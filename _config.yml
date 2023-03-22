@@ -22,7 +22,7 @@ navigation:
   - name: About Me
     link: /index.html
   - name: Malware Development
+    link: /malware-introduction.html
     sublist:
       - name: Hiding malware within an Image
         link: /docs/malware.html
-    link: ./new-page.html
