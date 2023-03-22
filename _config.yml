@@ -1,7 +1,7 @@
-title: Minimalistic
+title: WXPN
 logo: /assets/img/logo.jpg
-email: person@address.com
-description: Minimalistic is a theme powered by Jekyll.
+email: wxpn@gmail.com
+description: Exploring the depths of cyber security, one vulnerability at a time.
 favicon: true
 color-scheme: auto
 
@@ -13,7 +13,7 @@ plugins:
 platforms:
   - name: GitHub
     icon: <i class="fa-brands fa-github"></i>
-    link: https://github.com/vaibhavvikas
+    link: https://github.com/wxpn
   - name: LinkedIn
     icon: <i class="fa-brands fa-linkedin"></i>
     link: https://www.linkedin.com/in/vaibhavvikas
@@ -26,3 +26,5 @@ navigation:
         link: ./index.html#small-image
   - name: Another Page
     link: ./another-page.html
+  - name: New Page
+    line: ./newpage.html
