@@ -21,6 +21,8 @@ platforms:
 navigation:
   - name: About Me
     link: /index.html
+  - name: Active Directory
+    link: /ActiveDirectory.html
   - name: Malware Development
     link: /malware-introduction.html
     sublist:
