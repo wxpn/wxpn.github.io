@@ -1,26 +1,28 @@
-# Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+title: Minimalistic
+logo: /assets/img/logo.jpg
+email: person@address.com
+description: Minimalistic is a theme powered by Jekyll.
+favicon: true
+color-scheme: auto
 
-# Permalinks
-permalink:        pretty
-relative_permalinks: true
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+  - jemoji
 
-# Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
-baseurl:          /
+platforms:
+  - name: GitHub
+    icon: <i class="fa-brands fa-github"></i>
+    link: https://github.com/vaibhavvikas
+  - name: LinkedIn
+    icon: <i class="fa-brands fa-linkedin"></i>
+    link: https://www.linkedin.com/in/vaibhavvikas
 
-author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
-
-paginate:         5
-
-# Custom vars
-version:          2.1.0
-
-github:
-  repo:           https://github.com/poole/hyde
+navigation:
+  - name: Readme
+    link: ./index.html
+    sublist:
+      - name: Image
+        link: ./index.html#small-image
+  - name: Another Page
+    link: ./another-page.html
