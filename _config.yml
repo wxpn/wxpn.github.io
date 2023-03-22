@@ -20,9 +20,9 @@ platforms:
 
 navigation:
   - name: About Me
-    link: ./index.html
+    link: /index.html
   - name: Malware Development
     sublist:
       - name: Hiding malware within an Image
-        link: ./docs/malware.html
+        link: /docs/malware.html
     link: ./new-page.html
