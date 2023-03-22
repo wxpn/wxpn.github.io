@@ -19,7 +19,10 @@ platforms:
     link: https://www.linkedin.com/in/aswingopalakrishnan/
 
 navigation:
-  - name: Readme
+  - name: About Me
     link: ./index.html
-  - name: New Page
+  - name: Malware Development
+    sublist:
+      - name: Image
+        link: ./docs/malware.html
     link: ./new-page.html
