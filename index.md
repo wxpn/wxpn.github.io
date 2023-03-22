@@ -2,7 +2,7 @@
 layout: default
 ---
 
-## A Bit About Me...
+## A Bit About Us...
 
 As offensive cyber security engineers and researchers at WXPN SecOps, we are dedicated to comprehending and combatting the ever-evolving landscape of cyber threats. Our extensive knowledge and experience accumulated over the years have convinced us that sharing our expertise with others is crucial in creating a safer digital world.
 
