@@ -1,4 +1,4 @@
-title: WXPN Secops
+title: WXPN
 logo: /assets/img/logo.jpg
 email: wxpn@gmail.com
 description: Exploring the depths of cyber security, one vulnerability at a time.
@@ -19,7 +19,7 @@ platforms:
     link: https://www.linkedin.com/in/aswingopalakrishnan/
 
 navigation:
-  - name: About Us
+  - name: About Me
     link: /index.html
   - name: Active Directory
     link: /docs/ActiveDirectory.html

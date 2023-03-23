@@ -2,12 +2,12 @@
 layout: default
 ---
 
-## A Bit About Us...
+## A Bit About Me...
 
-As offensive cyber security engineers and researchers at WXPN SecOps, we are dedicated to comprehending and combatting the ever-evolving landscape of cyber threats. Our extensive knowledge and experience accumulated over the years have convinced us that sharing our expertise with others is crucial in creating a safer digital world.
+As an offensive cyber security engineer and researcher, my passion lies in comprehending and combating the ever-evolving landscape of cyber threats. With years of experience and extensive knowledge in the field, I am convinced that sharing our expertise is crucial in creating a safer digital world.
 
-Our blog serves as a repository to document our discoveries and research, providing valuable insights and analysis on various cyber security topics. We aspire to make this blog a go-to resource for individuals interested in cyber security, regardless of their level of experience.
+Through my blog, I aim to document our discoveries and research, providing valuable insights and analysis on various topics related to cyber security. My goal is to create a resource that caters to individuals from all walks of life - whether you're a seasoned professional or just starting out - with the objective of fostering a safer digital environment.
 
-In essence, our primary objective is to contribute to the community of cyber security professionals and enthusiasts, as we work towards creating a more secure and resilient digital world.
+In essence, my primary objective is to contribute to the community of cyber security professionals and enthusiasts, as we work towards creating a more secure and resilient digital world.
 
 [back](/)
