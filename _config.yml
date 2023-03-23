@@ -1,9 +1,9 @@
-title: WXPN
+title: WXPN Secops
 logo: /assets/img/logo.jpg
 email: wxpn@gmail.com
 description: Exploring the depths of cyber security, one vulnerability at a time.
 favicon: true
-color-scheme: light
+color-scheme: auto
 
 plugins:
   - jekyll-sitemap
@@ -22,9 +22,9 @@ navigation:
   - name: About Us
     link: /index.html
   - name: Active Directory
-    link: /ActiveDirectory.html
+    link: /docs/ActiveDirectory.html
   - name: Malware Development
-    link: /malware-introduction.html
+    link: /docs/malware-introduction.html
     sublist:
       - name: Hiding malware within an Image
-        link: /docs/malware.html
+        link: /docs/hidinginimage.html

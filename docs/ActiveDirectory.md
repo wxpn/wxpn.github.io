@@ -1,10 +1,9 @@
 ---
-layout: post
+layout: default
 ---
 
-## Active Directory Texts
+## Active Directory Commands
 
-_yay_
-Text can be **bold**, _italic_, or ~~strikethrough~~.
+
 
 [back](./)
