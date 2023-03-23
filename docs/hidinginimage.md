@@ -2,7 +2,7 @@
 layout: default
 ---
 
-# Image Concatenation
+# Hiding malware within an Image
 
 The basic idea is to hide the malware inside the concatenated image file. The malware can be hidden in the binary data of the image file. This can be done by adding the malware code to the end of the image file, after the image data. When the concatenated image file is downloaded and opened, the image will display normally, but the malware code will be executed in the background.
 
@@ -56,7 +56,7 @@ image_len = SizeofResource(NULL, res);
 
 The `image` character pointer points to first byte of the malicios image, and `image_len` the corresponding length of the image.
 
-3. Extract the shellcode
+5. Extract the shellcode
 
 The `end` character pointer would point to the first byte of binary.
 
