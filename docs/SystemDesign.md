@@ -2,6 +2,11 @@
 layout: default
 ---
 
+# System Design
+System design is the process of defining the architecture, components, modules, interfaces, and data for a system to satisfy specific requirements. It involves creating a detailed plan for a system's construction and operation, including the selection of hardware and software components and their integration into a functional whole.
+
+System design can be applied to a wide range of fields, including software development, electrical engineering, and mechanical engineering. The goal of system design is to create a system that meets the needs of its users and stakeholders, is reliable, efficient, and scalable, and is capable of being maintained and updated as needed.
+
 ## Client Server Model
 A client (browser) requests information from a server, the server(any website which has a/several servers) responds to the client with the requested information. The client does not actually know what the server is. All that it knows that it can communicate with it. It does not know what the server represents.
 
