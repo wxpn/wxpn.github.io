@@ -7,4 +7,4 @@ Active Directory is a technology used in Windows environments that allows admini
 
 - [Enumerating Active Directory](/docs/AD/enumeration.html)
 
-[back](./)
+[back](/index.html)
