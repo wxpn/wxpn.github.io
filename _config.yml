@@ -26,7 +26,7 @@ navigation:
   - name: Active Directory
     link: /docs/ActiveDirectory.html
     sublist:
-      - name: Enumeration ActiveDirectory
+      - name: Enumeration
         link: /docs/AD/enumeration.html
   - name: Malware Development
     link: /docs/malware-introduction.html
