@@ -34,7 +34,4 @@ navigation:
     link: /docs/malware-introduction.html
     sublist:
       - name: Hiding malware within an Image
-        link: /docs/malare-imagecon.html
-
-
-adprivesc.md
+        link: /docs/malware-imagecon.html

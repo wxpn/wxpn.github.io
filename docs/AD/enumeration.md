@@ -22,7 +22,7 @@ Get-ForestDomain
 
 Get all global catalogs for the current forest
 ```
-Get-ForestGlobalCatalog`
+Get-ForestGlobalCatalog
 ```
 
 Map trusts of a forest
