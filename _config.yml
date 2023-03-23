@@ -21,6 +21,8 @@ platforms:
 navigation:
   - name: About Me
     link: /index.html
+  - name: System Design Concepts
+    link: /docs/SystemDesign.html
   - name: Active Directory
     link: /docs/ActiveDirectory.html
   - name: Malware Development
