@@ -25,6 +25,9 @@ navigation:
     link: /docs/SystemDesign.html
   - name: Active Directory
     link: /docs/ActiveDirectory.html
+    sublist:
+      - name: Enumeration ActiveDirectory
+        link: /docs/AD/enumeration.html
   - name: Malware Development
     link: /docs/malware-introduction.html
     sublist:
