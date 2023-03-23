@@ -352,8 +352,9 @@ Check whether the current user has access on the server.
 Get-SQLInstanceDomain | Get-SQLConnectionTestThreaded -Verbose
 ```
 
-Gather information. Check which account may access the server.
+Gather information. Check which service account may access the server.
 ```
 Get-SQLInstanceDomain | Get-SQLServerInfo -Verbose
 ```
+
 [back](./)
