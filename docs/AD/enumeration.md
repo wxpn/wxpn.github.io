@@ -7,8 +7,6 @@ During Active Directory enumeration, a red teamer will typically use various too
 
 By understanding and effectively utilizing these commands, red teamers can more efficiently navigate Active Directory and achieve their objectives. However, it's important to use these commands ethically and with proper authorization.
 
-* [Design](./enumeration.html#ACL)
-
 ## Forest
 Get Current Forest.
 ```
