@@ -12,7 +12,7 @@ The basic idea is to hide the malware inside the concatenated image file. The ma
 xxd -i saturn.jpg
 ```
 
-![saturn-xxd.jpg]{/docs/resources/malware/saturn-xxd.jpg}
+![Saturn.jpg with XXD](/docs/resources/malware/saturn-xxd.jpg)
 
 As shown above, the command precisely display the size of the image in bytes. Take a note.
 
@@ -22,7 +22,7 @@ As shown above, the command precisely display the size of the image in bytes. Ta
 xxd -i msgbox64.bin
 ```
 
-![msg-box.jpg]{/docs/resources/malware/msgbox-size.png}
+![msgbox](/docs/resources/malware/msgbox-size.png)
 
 Once we have both the file length, concatenate the shellcode with the image file.
 
@@ -30,7 +30,7 @@ Once we have both the file length, concatenate the shellcode with the image file
 xxd -p msgbox64.bin | tr -d "\n" >> saturn.jpg
 ```
 
-1. Create the resource file for the image.
+2. Create the resource file for the image.
 
 ```cpp
 #include "resources.h"
@@ -56,7 +56,7 @@ image_len = SizeofResource(NULL, res);
 
 The `image` character pointer points to first byte of the malicios image, and `image_len` the corresponding length of the image.
 
-2. Extract the shellcode
+3. Extract the shellcode
 
 The `end` character pointer would point to the first byte of binary.
 
