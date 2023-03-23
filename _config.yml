@@ -3,7 +3,7 @@ logo: /assets/img/logo.jpg
 email: wxpn@gmail.com
 description: Exploring the depths of cyber security, one vulnerability at a time.
 favicon: true
-color-scheme: auto
+color-scheme: light
 
 plugins:
   - jekyll-sitemap
