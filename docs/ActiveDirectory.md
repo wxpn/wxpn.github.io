@@ -6,10 +6,11 @@ layout: default
 
 Active Directory is a technology used in Windows environments that allows administrators to manage users, computers, and other network resources. As a red teamer, understanding how to interact with and manipulate Active Directory can be crucial in achieving your objectives. Knowing the right commands to use can save time and increase the effectiveness of your operations.
 
-By understanding and effectively utilizing these commands, red teamers can more efficiently navigate Active Directory and achieve their objectives. However, it's important to use these commands ethically and with proper authorization.
-
 
 ## Enumeration
+During Active Directory enumeration, a red teamer will typically use various tools and techniques to collect information about the target environment, such as the domain structure, users and groups, computer systems, and network resources. This information can be used to identify potential attack vectors, privilege escalation opportunities, and other weaknesses that can be exploited to gain unauthorized access to the target environment.
+
+By understanding and effectively utilizing these commands, red teamers can more efficiently navigate Active Directory and achieve their objectives. However, it's important to use these commands ethically and with proper authorization.
 
 ### Forest
 Get Current Forest.
