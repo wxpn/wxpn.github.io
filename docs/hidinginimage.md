@@ -16,7 +16,7 @@ xxd -i saturn.jpg
 
 As shown above, the command precisely display the size of the image in bytes. Take a note.
 
-1. Create a binary with msfvenom and find its size. For demonstration purposes, lets use a message box binary.
+2. Create a binary with msfvenom and find its size. For demonstration purposes, lets use a message box binary.
 
 ```bash
 xxd -i msgbox64.bin
@@ -30,7 +30,7 @@ Once we have both the file length, concatenate the shellcode with the image file
 xxd -p msgbox64.bin | tr -d "\n" >> saturn.jpg
 ```
 
-2. Create the resource file for the image.
+3. Create the resource file for the image.
 
 ```cpp
 #include "resources.h"
@@ -44,7 +44,7 @@ Similarly the` resource.h` file
 #define IMAGE 100
 ```
 
-Final code for reading the malicious image file for the resource would be:
+4. Final code for reading the malicious image file for the resource would be:
 
 ```cpp
 // Extract payload from resources section
