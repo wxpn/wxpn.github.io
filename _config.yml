@@ -35,3 +35,5 @@ navigation:
     sublist:
       - name: Hiding malware within an Image
         link: /docs/malware/malware-imagecon.html
+      - name: Backdooring PE
+        link: /docs/malware/backdooringPE.html
