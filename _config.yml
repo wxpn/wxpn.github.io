@@ -34,4 +34,4 @@ navigation:
     link: /docs/malware-introduction.html
     sublist:
       - name: Hiding malware within an Image
-        link: /docs/malware-imagecon.html
+        link: /docs/malware/malware-imagecon.html
