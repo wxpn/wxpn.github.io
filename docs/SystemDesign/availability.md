@@ -1,4 +1,4 @@
-## Availability
+# Availability
 How resistent is the system to failures ? What happens when server to the system fails? Often desribed as fault tolerence? Another way to think about availablility, as the percentage of time, in a given period of time like a month/year for instance are operation enough such that all its primary functions are satisfied. 
 
 In this day and age all application have an implied guarantee of availability. For example, for github.io, when you login, you expect the application to be up and operational. If the  customer is down, the customer may be unhappy leading to losing customers and bad publicity.
@@ -26,3 +26,5 @@ Now to handle the incoming traffic to these redundant servers, we now need a loa
 - **Active redundancy** - When you have multple machines that work together such that only one or few machine would be typically handling traffic. If this machine fail, then the other machine would be informed of this failure and would take over. This is done via what called is as **leader-election**.
 
 It is also important to consider that its not always software, but we also need to have processes in place when there is a failure to ensure availability. Some system failures require a humen intervention, server crashes and you need a human to bring that up. So we need to have proceses in place to bring the server up in the proper timeframe.
+
+[back](../)

@@ -1,4 +1,4 @@
-## Client Server Model
+# Client Server Model
 A client (browser) requests information from a server, the server(any website which has a/several servers) responds to the client with the requested information. The client does not actually know what the server is. All that it knows that it can communicate with it. It does not know what the server represents.
 
 When you first enter the url into your browser, the browser does not really know what the url is. The browser performs a DNS query to determine the ip address of the website(the server). 
@@ -14,3 +14,5 @@ When we are talking about the client server model, it turns out that most client
 - dns - 53
 - https - 443
 So in our example, when we type in the url in the browser, the server understand that client is trying to access http service on the server and service response with the html content on the server to the client.  
+
+[back](../)

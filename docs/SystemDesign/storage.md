@@ -4,3 +4,5 @@ If we think of any system we are designing, that system will require some form o
 - Memory - Data is not persistent, and if the server is shutdown or goes down due to an outage, all data is lost. Note that in-memory access is much faster than disk access.
 
 There are several type of database offerings and these are based on the type of the data stored in the database.
+
+[back](../)

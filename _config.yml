@@ -28,8 +28,6 @@ navigation:
     sublist:
       - name: Enumeration
         link: /docs/AD/enumeration.html
-      - name: Privilege Escalation
-        link: /docs/AD/adprivesc.html
   - name: Malware Development
     link: /docs/malware-introduction.html
     sublist:
