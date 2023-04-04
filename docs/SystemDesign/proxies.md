@@ -13,4 +13,4 @@ In the example of dns resolution of `github.io`, the dns would return the ip add
 
 You can configure the rw proxy to handle certain tyes of bad requests, take care of logging, cache certain html pages or other static contents. The best use cases of rw proxy is to use as load balancer ( a server which effectively distribute a load between a bunch of server ). Nginx is a very popular tool which is used as a load balancer and as a reverse proxy.
 
-[back](../)
+[back](../SystemDesign.md)

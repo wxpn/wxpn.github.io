@@ -27,4 +27,4 @@ Now to handle the incoming traffic to these redundant servers, we now need a loa
 
 It is also important to consider that its not always software, but we also need to have processes in place when there is a failure to ensure availability. Some system failures require a humen intervention, server crashes and you need a human to bring that up. So we need to have proceses in place to bring the server up in the proper timeframe.
 
-[back](../)
+[back](../SystemDesign.md)

@@ -22,4 +22,4 @@ But increasing number of throughput does not solve all the problems. So in this 
 
 Another important point to understand is that even though both latency and throughput are very much related and important when it comes to measuring a systems performance, they are not necessarily corelated. For example, if you have a part of a system that requires very low latency, in other words, they support very fast data transfers. But you then might have a part of the system which has a very low throughput. This means they advantage which we had in previous part of the system with the low latency is now cancelled out with the current part of the system. In other words, you cannot make assumptions about latency and throughput based on the other, these are co-related things.
 
-[back](../)
+[back](../SystemDesign.md)
