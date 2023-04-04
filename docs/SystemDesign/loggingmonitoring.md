@@ -1,0 +1,11 @@
+# Logging and Monitoring
+## Logging
+As your system grows larger and larger, logging and monitoring becomes very important. When there are issues with the user experience, and when we dont know the issue or issue is not very clear. So in the context of system design, we are referring to logging in the code by also having a system which would collect all the logs, which would allow us to debug issue which we discribed. There are two format for logging - syslog and json. Then there is a service which collects these logs and store them in some database, e.g **stack driver**.
+
+## Monitoring 
+If we have build a system which is growing and you need to visibility to system health, performance and general status. This is possuble when you have designed a system that would gather such meaningful metrics and that you have tools to monitor these metrics. Making sure in your overall system you have systems in place that would monitor important metrics of your overall metrics. 
+- There are lot of ways to generate metrics - one way would be to scrape your logs to create metrics out of some of the meaningful data. The problem here is that you are limited by the logs i,e logs should have meaningful information that would interesting to monitor e.g latency of each request of the system. Also if you decide to change the logging, this can result in breaking the monitoring system.
+- Another way is gather metrics is by using a time-series database, specialized database that is related to time, data that is measured over time. E.g influx database, prometheus. You use these specialized database and use the servers to send metrics to these time-series databases. You can use tools such as graphana out of these database and monitor system from here. This solution is independent of logging and much more robust.
+- Another important thing important to know is alerting. Ones we have monitoring incorporated into our system, we also need alerting. For example if the error rate exceeds a certain threshold, we should be alerted. For this, we could use **slack**, hook up monitoring system with slack, such that when there is an alert which we deep very important, an error message is send to the slack, maybe asking the members to check out the error.
+
+[back](../SystemDesign.md)
