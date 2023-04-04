@@ -26,7 +26,7 @@ The following concepts are covered:
 - [Rate Limiting](/docs/SystemDesign/ratelimiting.html)
 - [Logging and Monitoring](/docs/SystemDesign/loggingmonitoring.html)
 - [Rate Limiting](/docs/SystemDesign/ratelimiting.html)
-- [Polling and Streaming](/docs/SystemDesign/Pollngandstreaming.html)
+- [Polling and Streaming](/docs/SystemDesign/pollingandstreaming.html)
 - [Publish / Subscribe](/docs/SystemDesign/pubsub.html)
 - [Map Reduce](/docs/SystemDesign/mapreduce.html)
 - [API Design](/docs/SystemDesign/api.html)
