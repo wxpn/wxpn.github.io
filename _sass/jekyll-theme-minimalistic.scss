@@ -9,8 +9,9 @@ html {
 body {
   background-color: var(--clr-bg);
   padding: 50px;
-  font: 15px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font: 10px/1.5 "Noto Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   color: var(--clr-text);
+  text-align: justify;
   font-weight: 400;
   -ms-overflow-style: -ms-autohiding-scrollbar;
 }
