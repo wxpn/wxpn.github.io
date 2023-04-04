@@ -4,8 +4,4 @@ layout: default
 
 ## A Bit About Me...
 
-As an offensive cyber security engineer and researcher, my passion lies in comprehending and combating the ever-evolving landscape of cyber threats. With years of experience and extensive knowledge in the field, I am convinced that sharing our expertise is crucial in creating a safer digital world.
-
-Through my blog, I aim to document our discoveries and research, providing valuable insights and analysis on various topics related to cyber security. My goal is to create a resource that caters to individuals from all walks of life - whether you're a seasoned professional or just starting out - with the objective of fostering a safer digital environment.
-
-In essence, my primary objective is to contribute to the community of cyber security professionals and enthusiasts, as we work towards creating a more secure and resilient digital world.
+I'm an offensive security engineer and researcher with a passion for staying ahead of the ever-changing cyber threats that we face today. With years of experience and a deep knowledge of the field, I firmly believe that sharing our expertise is essential to creating a safer digital world. Through my blog, I offer valuable insights and analysis on various topics related to cyber security, catering to both seasoned professionals and those just starting out.
