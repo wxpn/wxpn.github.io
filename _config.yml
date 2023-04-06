@@ -30,7 +30,7 @@ navigation:
       - name: Dive into PE Formats
         link: /docs/malware/pe-formats.html
       - name: Export Directory in PE
-        link: /docs/malware/exporteddir.html
+        link: /docs/malware/exportdir.html
       - name: Hiding malware within an Image
         link: /docs/malware/malware-imagecon.html
       - name: Backdooring PE
