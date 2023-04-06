@@ -29,7 +29,7 @@ navigation:
     sublist:
       - name: Dive into PE Formats
         link: /docs/malware/pe-formats.html
-      - name: More on Export Directory
+      - name: Export Directory in PE
         link: /docs/malware/exportdirectory.html
       - name: Hiding malware within an Image
         link: /docs/malware/malware-imagecon.html
