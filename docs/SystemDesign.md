@@ -15,11 +15,10 @@ The following concepts are covered:
 | [Latency And Throughput](/docs/SystemDesign/latencythroughput.html)   | [Configuration](/docs/SystemDesign/configuration.html)				  |
 | [Availability](/docs/SystemDesign/availability.html)					| [Rate Limiting](/docs/SystemDesign/ratelimiting.html)					  |
 | [Caching](/docs/SystemDesign/caching.html)							| [Logging and Monitoring](/docs/SystemDesign/loggingmonitoring.html)	  |
-| [Proxies](/docs/SystemDesign/proxies.html)							| [Rate Limiting](/docs/SystemDesign/ratelimiting.html)					  |
+| [Proxies](/docs/SystemDesign/proxies.html)							| [API Design](/docs/SystemDesign/api.html)
 | [Load Balanacer](/docs/SystemDesign/loadbalancer.html)				| [Polling and Streaming](/docs/SystemDesign/pollingandstreaming.html)	  |		
 | [Hashing](/docs/SystemDesign/hashing.html)							| [Publish / Subscribe](/docs/SystemDesign/pubsub.html)					  |
 | [Relational](/docs/SystemDesign/relational.html)						| [Map Reduce](/docs/SystemDesign/mapreduce.html)						  |
-| [API Design](/docs/SystemDesign/api.html)
 
 
 [back](/index.html)
