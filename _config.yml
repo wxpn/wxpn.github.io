@@ -27,6 +27,10 @@ navigation:
   - name: Malware Development
     link: /docs/malware-introduction.html
     sublist:
+      - name: Dive into PE Formats
+        link: /docs/malware/pe-formats.html
+      - name: More on Export Directory
+        link: /docs/malware/exportdirectory.html
       - name: Hiding malware within an Image
         link: /docs/malware/malware-imagecon.html
       - name: Backdooring PE
