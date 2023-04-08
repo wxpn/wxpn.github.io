@@ -7,42 +7,32 @@ During Active Directory enumeration, a red teamer will typically use various too
 
 By understanding and effectively utilizing these commands, red teamers can more efficiently navigate Active Directory and achieve their objectives. However, it's important to use these commands ethically and with proper authorization.
 
+
 ## Forest
-Get Current Forest.
-```
-Get-ADForest
-Get-Forest
-```
+Active Directory Forests are a hierarchical way to manage multiple domains sharing a common schema and configuration. It provides a flexible and scalable approach to managing resources within an organization.
 
-Get domains from the current forest
-```
-(Get-ADForest).Domains
-Get-ForestDomain
-```
+| Command 					| 		Description 					|   Module 	       |
+| :--     					|   		:---:     					|    	   ---:    |
+|Get-ADForest				|Get domains from the current forest.   | Active Directory |
+|Get-Forest 				|Map trusts of a forest     			| PowerView 	   |
+|Get-ForestDomain 			|Map domains in a forest 				| Active Directory |
+|(Get-ADForest).Domains 	|Map domains in a forest 				| Active Directory |  
+|Get-ForestGlobalCatalog    |Get Global Catalogue 					| PowerView		   |
 
-Get all global catalogs for the current forest
-```
-Get-ForestGlobalCatalog
-```
-
-Map trusts of a forest
-```
-Get-ForestTrust
-```
 
 ## Trusts
-List External Trust of the current forest.
-```
-Get-ForestDomain -Verbose | Get-DomainTrust | ?{$_.TrustAttributes -eq 'FILTER_SIDS'}
-(Get-ADForest).domains | % { Get-ADTrust -Filter '(intraForest -ne $True) -and (ForestTransitive -ne $True)' -Server $_ }
-```
+Active Directory trusts allow users in one Windows Server domain to access resources in another domain by establishing a trust relationship between them.
 
-List all external forest trusts
-```
-Get-ADTrust -Filter 'intraForest -ne $True' -Server (Get- ADForest).Name
-Get-ADTrust -Filter * -Server eu.local
-Get-DomainTrust -Domain techcorp.local | ?{ $_.TrustAttributes -match 'FOREST_TRANSITIVE' }
-```
+
+| Command 					| 		Description 					|   Module 	       |
+| :--     					|   		:---:     					|    	   ---:    |
+|Get-ForestTrust			|Map trusts of a forest.  		 		| Active Directory |
+|Get-ForestDomain -Verbose \| Get-DomainTrust | ?{$\_.TrustAttributes -eq 'FILTER_SIDS'}|List External Trust of the current forest.| PowerView|
+|(Get-ADForest).domains \| % {Get-ADTrust -Filter '(intraForest -ne $True) -and (ForestTransitive -ne $True)' -Server $\_ } |List External Trust of the current forest| Active Directory |
+|Get-ADTrust -Filter 'intraForest -ne $True' -Server (Get-ADForest).Name|List all external forest trusts | Active Directory |  
+|Get-ADTrust -Filter * -Server eu.local |List all external forest trusts | Active Directory|
+|Get-DomainTrust -Domain techcorp.local \| ?{ $\_.TrustAttributes -match 'FOREST_TRANSITIVE' } |List domain external trusts | Active Directory|
+
 
 ## Domain
 
