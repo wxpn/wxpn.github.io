@@ -30,42 +30,34 @@ Active Directory trusts allow users in one Windows Server domain to access resou
 |Get-ForestDomain -Verbose \| Get-DomainTrust \| ?{$\_.TrustAttributes -eq 'FILTER_SIDS'}|List External Trust of the current forest.| PowerView|
 |(Get-ADForest).domains \| % {Get-ADTrust -Filter '(intraForest -ne $True) -and (ForestTransitive -ne $True)' -Server $\_ } |List External Trust of the current forest| Active Directory |
 |Get-ADTrust -Filter 'intraForest -ne $True' -Server (Get-ADForest).Name|List all external forest trusts | Active Directory |  
-|Get-ADTrust -Filter * -Server eu.local |List all external forest trusts | Active Directory|
+|Get-ADTrust -Filter * -Server eu.local |Enumerate forest trusts of a remote forest | Active Directory|
 |Get-DomainTrust -Domain techcorp.local \| ?{ $\_.TrustAttributes -match 'FOREST_TRANSITIVE' } |List domain external trusts | Active Directory|
 
 
 ## Domain
+Active Directory Domain is a centralized database of user accounts and computer information that enables administrators to manage and control access to network resources. It provides a hierarchical structure that allows for the organization and management of network resources, such as users, computers, and servers. In simpler terms, it is a way to manage and organize access to resources in a network.
 
-Using AD Module:
 
-```
-Get-ADDomain
-Get-ADDomain -Identity moneycorp.local
-(Get-ADDomain).DomainSID
-Get-ADDomainController -DomainName moneycorp.local
-```
+| Command 											  | 		Description 					|   Module 	       |
+| :---     											  |   		:---:     						|    	   ---:    |
+| (Get-ADDomain).Get-DomainSID						  |  Find Domain SID 						|Active Directory|
+| Get-ADDomainController -DomainName moneycorp.local  |  Find Domain Controller 				|Active Directory|
+| Get-DomainController 								  |  Find Domain Controller 				|PowerView|
+| Get-DomainController –Domain moneycorp.local        |  Find Domain Controller of a domain 	|PowerView|
+| Get-DomainSID 									  |  Find Domain SID 						|PowerView|
+|(Get-DomainPolicy)."system access"				      |  Enumerate Domain Policy 				|PowerView|
+|(Get-DomainPolicy)."KerberosPolicy"                  |  Enumerate Kerberos Policy 			    |PowerView|
+|(Get-DomainPolicy –domain moneycorp.local)."KerberosPolicy"| Enumeate Kerberos Policy of a domain|PowerView|
 
-Using PowerView module:
-
-```
-Get-DomainSID 
-(Get-DomainPolicy)."system access"
-(Get-DomainPolicy)."KerberosPolicy"
-(Get-DomainPolicy –domain moneycorp.local)."KerberosPolicy"
-Get-NetDomain
-Get-NetDomain –Domain moneycorp.local
-Get-NetDomainController
-Get-NetDomainController –Domain moneycorp.local
-```
 
 ## Users
-Enumerate domain users.
-```
-Get-NetUser –Username student1
-Get-UserProperty –Properties pwdlastset
-Find-UserField -SearchField Description -SearchTerm "built"
-Get-DomainUser -LDAPFilter "Description=*built*" |   Select name,Description
-```
+
+| Command 											  | 		Description 					|   Module 	       |
+| :---     											  |   		:---:     						|    	   ---:    |
+|Get-NetUser –Username student1 					  | ^^											| 	 PowerView 	   |
+|^^ Get-UserProperty –Properties pwdlastset			  | ^^ 								        | 	 PowerView 	   |
+|^^ Find-UserField -SearchField Description -SearchTerm "built"| ^^ Enumerate User Properties 	| 	 PowerView 	   |
+|^^ Get-DomainUser -LDAPFilter "Description=*built*" \|  Select name,Description| ^^				| 	 PowerView 	   |
 
 ## Computers
 Enumerate Computers
