@@ -54,10 +54,10 @@ Active Directory Domain is a centralized database of user accounts and computer 
 
 | Command 											  | 		Description 					|   Module 	       |
 | :---     											  |   		:---:     						|    	   ---:    |
-|Get-NetUser –Username student1 					  | ^^											| 	 PowerView 	   |
-|^^ Get-UserProperty –Properties pwdlastset			  | ^^ 								        | 	 PowerView 	   |
-|^^ Find-UserField -SearchField Description -SearchTerm "built"| ^^ Enumerate User Properties 	| 	 PowerView 	   |
-|^^ Get-DomainUser -LDAPFilter "Description=*built*" \|  Select name,Description| ^^				| 	 PowerView 	   |
+|Get-NetUser –Username student1 					  || ^^											|| 	 PowerView 	   |
+| ^^ Get-UserProperty –Properties pwdlastset			  || ^^ 								        || 	 PowerView 	   |
+| ^^ Find-UserField -SearchField Description -SearchTerm "built"|| ^^ Enumerate User Properties 	|| 	 PowerView 	   |
+| ^^ Get-DomainUser -LDAPFilter "Description=*built*" \|  Select name,Description|| ^^				|| 	 PowerView 	   |
 
 ## Computers
 Enumerate Computers
