@@ -51,13 +51,14 @@ Active Directory Domain is a centralized database of user accounts and computer 
 
 
 ## Users
+Active Directory user objects are containers for storing and managing information about users in a network environment. They typically include attributes such as the user's name, username, password, email address, and group memberships. User objects allow administrators to control access to network resources, assign permissions, and manage user settings across the network.
 
 | Command 											  | 		Description 					|   Module 	       |
 | :---     											  |   		:---:     						|    	   ---:    |
-|Get-NetUser –Username student1 					  || ^^											|| 	 PowerView 	   |
-| ^^ Get-UserProperty –Properties pwdlastset			  || ^^ 								        || 	 PowerView 	   |
-| ^^ Find-UserField -SearchField Description -SearchTerm "built"|| ^^ Enumerate User Properties 	|| 	 PowerView 	   |
-| ^^ Get-DomainUser -LDAPFilter "Description=*built*" \|  Select name,Description|| ^^				|| 	 PowerView 	   |
+|Get-DomainUser –Username student1 					  |	Find Last Set Password   				| 	 PowerView 	   |
+|Get-UserProperty –Properties pwdlastset			  |	Search Desription for keyword "built"   | 	 PowerView 	   |
+|Find-UserField -SearchField Description -SearchTerm "built"|  Enumerate User Properties 		| 	 PowerView 	   |
+|Get-DomainUser -LDAPFilter "Description=*built*" \|  Select name,Description|Enumerate User Properties | 	 PowerView 	   |
 
 ## Computers
 Enumerate Computers
