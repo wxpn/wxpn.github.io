@@ -27,11 +27,11 @@ Active Directory trusts allow users in one Windows Server domain to access resou
 | Command 					| 		Description 					|   Module 	       |
 | :--     					|   		:---:     					|    	   ---:    |
 |Get-ForestTrust			|Map trusts of a forest.  		 		| Active Directory |
-|Get-ForestDomain -Verbose \| Get-DomainTrust \| ?{$\_.TrustAttributes -eq 'FILTER_SIDS'}|List External Trust of the current forest.| PowerView|
+|Get-ForestDomain -Verbose \| Get-DomainTrust \| ?{$\_.TrustAttributes -eq 'FILTER_SIDS'}|List External Trust of the current forest.|PowerView|
 |(Get-ADForest).domains \| % {Get-ADTrust -Filter '(intraForest -ne $True) -and (ForestTransitive -ne $True)' -Server $\_ } |List External Trust of the current forest| Active Directory |
 |Get-ADTrust -Filter 'intraForest -ne $True' -Server (Get-ADForest).Name|List all external forest trusts | Active Directory |  
 |Get-ADTrust -Filter * -Server eu.local |Enumerate forest trusts of a remote forest | Active Directory|
-|Get-DomainTrust -Domain techcorp.local \| ?{ $\_.TrustAttributes -match 'FOREST_TRANSITIVE' } |List domain external trusts | Active Directory|
+|Get-DomainTrust -Domain techcorp.local \| ?{ $\_.TrustAttributes -match 'FOREST_TRANSITIVE' } |List domain external trusts | PowerView|
 
 
 ## Domain
