@@ -27,7 +27,7 @@ Active Directory trusts allow users in one Windows Server domain to access resou
 | Command 					| 		Description 					|   Module 	       |
 | :--     					|   		:---:     					|    	   ---:    |
 |Get-ForestTrust			|Map trusts of a forest.  		 		| Active Directory |
-|Get-ForestDomain -Verbose \| Get-DomainTrust | ?{$\_.TrustAttributes -eq 'FILTER_SIDS'}|List External Trust of the current forest.| PowerView|
+|Get-ForestDomain -Verbose \| Get-DomainTrust \| ?{$\_.TrustAttributes -eq 'FILTER_SIDS'}|List External Trust of the current forest.| PowerView|
 |(Get-ADForest).domains \| % {Get-ADTrust -Filter '(intraForest -ne $True) -and (ForestTransitive -ne $True)' -Server $\_ } |List External Trust of the current forest| Active Directory |
 |Get-ADTrust -Filter 'intraForest -ne $True' -Server (Get-ADForest).Name|List all external forest trusts | Active Directory |  
 |Get-ADTrust -Filter * -Server eu.local |List all external forest trusts | Active Directory|
@@ -77,7 +77,6 @@ Ping all machines in the current domain
 ```
 Get-ADComputer -Filter * -Properties DNSHostName | %{Test-Connection -Count 1 -ComputerName $_.DNSHostName}
 ```
-
 
 ## Groups
 Enumerate all groups of a current domain
