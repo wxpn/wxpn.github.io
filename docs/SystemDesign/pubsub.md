@@ -8,10 +8,10 @@ Going back to example of the chat application we discussed wherein we used strea
 The chat application is not the best application as this does not seem super important but what happens when we are designing a stock-broker application, then protecting data becomes really important. So persistent storage is very important when designing distributed systems. Then we are thinking that this problem could be solved with a database? But its not that simple. But a typical database is not we want for any and all applications. Say the client triggers a asynchronous operation ( a non-blocking operation ) and that operation goes to the server which take some time to complete, and eventually when it completes the response has to go back to client. This is not something we can store in the database. Even if we decide to build a custom storage solution in the server, this is where ideally the business logic of the system resides and because we want to have a good seperation of duties, this solution is not ideal. This is where **publish/subscribe pattern** comes handy.
 
 What is a publish/subscribe pattern ? Is a paradijm that consist of 4 entities:
-* publishers - are essential going to be servers.
-* subscribers - these are the client listening for data. The subscribers are subscribed to a topic.
-* Topics - Conceptualy speaking, these are channels.
-* Message
+- publishers - are essential going to be servers.
+- subscribers - these are the client listening for data. The subscribers are subscribed to a topic.
+- Topics - Conceptualy speaking, these are channels.
+- Message
 
 ```
   				-----------T1----------

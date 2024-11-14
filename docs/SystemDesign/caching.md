@@ -1,5 +1,7 @@
 # Caching
-Caching is used to increase the speed and and lower the latency of the system. When we discussed latency we discussed few examples of different operations or data transfers which took a different amount of time. We can imagine that caching is a method that can used to improve the latency when using certain type of methods such as the network, which took considerable amount of time. Now with caching, this latency can be significantly reduced by storing the data in cache which has considerably lower latency.
+
+Caching is used to increase the speed and and lower the latency of the system. When we discussed latency we discussed few examples of 
+different operations or data transfers which took a different amount of time. We can imagine that caching is a method that can used to improve the latency when using certain type of methods such as the network, which took considerable amount of time. Now with caching, this latency can be significantly reduced by storing the data in cache which has considerably lower latency.
 
 - We can use cache is number of places such as at the 
 	- client level - client caches some data value such it does not need to go to the server to retrieve it, 

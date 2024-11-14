@@ -1,4 +1,5 @@
 # Client Server Model
+
 A client (browser) requests information from a server, the server(any website which has a/several servers) responds to the client with the requested information. The client does not actually know what the server is. All that it knows that it can communicate with it. It does not know what the server represents.
 
 When you first enter the url into your browser, the browser does not really know what the url is. The browser performs a DNS query to determine the ip address of the website(the server). 

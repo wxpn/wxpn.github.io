@@ -1,5 +1,6 @@
-## Hashing
-* A hashing function is a specific data type ( such as a string or an identifier) and outputs a number. Different input may have the same output, but a good hashing function minimizes those hashing collisions.
+# Hashing
+
+A hashing function is a specific data type ( such as a string or an identifier) and outputs a number. Different input may have the same output, but a good hashing function minimizes those hashing collisions.
 
 ```
 ____																		____
@@ -19,11 +20,12 @@ ____							 |			 \						____
 |__|																		|__|
 
 ```
-* Four clients are going to be speaking with servers with loadbalancer in the middle. When a load balancer has to reroute a request from the client to the server, it must have some kind of server selection strategy to pick what server to reroute that traffic to. While lot of these server strategies are fine to begin with but depending on the system, these may introduce some problems. Lets assume for seconds these request that client are making, are requests which are computationally expensive and take lot of time for server to process. One way to deal with this is caching. The server can store in memory caches where every request that goes through the server is cached, and if the response is cached, it skips the operation which it otherwise has to do and immediately returns the cached response.
+Four clients are going to be speaking with servers with loadbalancer in the middle. When a load balancer has to reroute a request from the client to the server, it must have some kind of server selection strategy to pick what server to reroute that traffic to. While lot of these server strategies are fine to begin with but depending on the system, these may introduce some problems. Lets assume for seconds these request that client are making, are requests which are computationally expensive and take lot of time for server to process. One way to deal with this is caching. The server can store in memory caches where every request that goes through the server is cached, and if the response is cached, it skips the operation which it otherwise has to do and immediately returns the cached response.
 
-* The above aproach has an issue if the loadbalancer uses a roundrobin approach for server selection because if the client1 makes the same request again and this time, loadbalancer select another server ( not the server selected previously ), then the new server would need to do the computation again. So this aproach does not make good use of in-memory caching, and system is not getting nearly as many cache hits as its supposed to. This is where **hashing** comes to picture.
+The above aproach has an issue if the loadbalancer uses a roundrobin approach for server selection because if the client1 makes the same request again and this time, loadbalancer select another server ( not the server selected previously ), then the new server would need to do the computation again. So this aproach does not make good use of in-memory caching, and system is not getting nearly as many cache hits as its supposed to. This is where **hashing** comes to picture.
 
-* With hashing, we can hash the request that come into the server, for the sake of the example, lets use client1 and hash the name. The hashing function would return result in integers:
+With hashing, we can hash the request that come into the server, for the sake of the example, lets use client1 and hash the name. The hashing function would return result in integers:
+
 ```
 			hash(c1) = 11
 			11 % 4 = 3 -> server 3
@@ -32,7 +34,9 @@ ____							 |			 \						____
 			12 % 4 = 0 -> server 1
 
 ```
-Now we have another problem, we are dealing with large scale distributed system, we could have more than four server and if begin mod every time, we are only sending traffic to 4 servers. So, this above solution would fail if one of these servers fail or when we want to add more servers or remove servers. So, its not possible we change logic everytime, we add or remove servers. But even if we create a new logic to change the mod, the mod function would now return a new number. For example, lets say we add a server, so mod 5
+
+Now we have another problem, we are dealing with large scale distributed system, we could have more than four server and if begin mod every time, we are only sending traffic to 4 servers. So, this above solution would fail if one of these servers fail or when we want to add more servers or remove servers. So, its not possible we change logic everytime, we add or remove servers. But even if we create a new logic to change the mod, the mod function would now return a new number. For example, lets say we add a server, so mod 5.
+
 ```
 			hash(c1) = 11
 			11 % 5 = 3 -> server 1

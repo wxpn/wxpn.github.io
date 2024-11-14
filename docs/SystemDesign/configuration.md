@@ -1,5 +1,5 @@
-
 # Configuration
+
 Configuration is a set of parameters or constants that your system or application is going to use but instead of storing them in the application code, you would store them in a seemingly isolated file. Its usually written in JSOn format or YAML foramt. We usually name them "config.json" or "condfig.yaml". There are two types of configuration:
 
 ## static configuration 

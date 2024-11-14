@@ -1,4 +1,5 @@
 # Availability
+
 How resistent is the system to failures ? What happens when server to the system fails? Often desribed as fault tolerence? Another way to think about availablility, as the percentage of time, in a given period of time like a month/year for instance are operation enough such that all its primary functions are satisfied. 
 
 In this day and age all application have an implied guarantee of availability. For example, for github.io, when you login, you expect the application to be up and operational. If the  customer is down, the customer may be unhappy leading to losing customers and bad publicity.
