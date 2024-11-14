@@ -35,8 +35,6 @@ Get-ADComputer -Identity us-mailmgmt -Properties ms-mcs-admpwd | select -ExpandP
 Get-AdmPwdPassword -ComputerName us-mailmgmt
 ```
 The `Get-AdmPwdPassword` command uses the LAPS module.
-```
-
 
 ---
 
