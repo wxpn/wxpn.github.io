@@ -55,6 +55,6 @@ Get-ADUser -Filter {DoesNotRequirePreAuth -eq $True} -Properties DoesNotRequireP
 Invoke-ASREPRoast -Verbose
 ```
 
----
 
-[back](/adprivesc.html)
+---
+[back](../adprivesc.html)
