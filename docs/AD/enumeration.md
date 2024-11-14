@@ -1,11 +1,21 @@
 ---
-layout: default
+layout: post
+date: 30/09/2022
+author: Aswin Gopalakrishnan
+title: Enumeration Methods Overview
 ---
 
-# Enumeration
-During Active Directory enumeration, a red teamer will typically use various tools and techniques to collect information about the target environment, such as the domain structure, users and groups, computer systems, and network resources. This information can be used to identify potential attack vectors, privilege escalation opportunities, and other weaknesses that can be exploited to gain unauthorized access to the target environment.
+To gather data within an Active Directory (AD) environment, various methods and tools are available:
 
-By understanding and effectively utilizing these commands, red teamers can more efficiently navigate Active Directory and achieve their objectives. However, it's important to use these commands ethically and with proper authorization.
+- **ADSI (Active Directory Service Interfaces):** A set of COM interfaces used for accessing the capabilities of directory services from different network providers in a distributed computing environment.
+- **.NET Classes:** .NET Framework classes that enable directory services management and interaction with AD.
+- **Native Executable:** Executables that can be directly run on the command line or PowerShell for AD querying.
+- **WMI (Windows Management Instrumentation) using PowerShell:** A powerful scripting language that can manage and query devices.
+- **ActiveDirectory Module:** PowerShell module specifically for AD management, providing a comprehensive set of cmdlets.
+- **Automated Tools (GUI):** These include:
+  - **BloodHound:** Graphical AD recon tool for understanding relationships and paths to target high-privilege accounts.
+  - **pingcastle:** AD security scanning tool focusing on risk assessments.
+  - **purple knight:** Security assessment tool that identifies vulnerabilities in AD configurations.
 
 
 ## Forest
@@ -312,25 +322,21 @@ Get-NetFileServer
 ```
 
 ## Forest Mapping
-Get all domains in the current forest
-```
-Get-NetForestDomain –Forest eurocorp.local
-(Get-ADForest).Domains
-Get-NetForestCatalog
-```
+Mapping forests provides insight into domains, catalogs, and structural hierarchies within the forest.
+
+- **Get-NetForest:** Returns details on the forest, including trust relationships.
+- **Get-NetForestDomain:** Lists all domains within the forest.
 
 ## MSSQL Servers
-Find MSSQL Instance ( Via SPN Scanning)
-```
-Get-SQLInstanceDomain
-```
+Identifies SQL server instances and checks accessibility.
 
-Check whether the current user has access on the server.
-```
-Get-SQLInstanceDomain | Get-SQLConnectionTestThreaded -Verbose
-```
+### SPN Scanning
+- **Get-SQLInstanceDomain:** Finds SQL instances within the domain by scanning SPNs.
 
-Gather information. Check which service account may access the server.
-```
-Get-SQLInstanceDomain | Get-SQLServerInfo -Verbose
-```
+### Accessibility Check
+- **Get-SQLConnectionTestThreaded:** Tests SQL server accessibility for the current user.
+
+### Information Gathering
+- **Get-SQLServerInfo:** Gathers details on SQL servers, such as accessible accounts and configurations.
+
+---
