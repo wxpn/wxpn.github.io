@@ -5,7 +5,6 @@ author: Aswin Gopalakrishnan
 title: Kerberoast and Variants
 ---
 
-
 ## Kerberoasting
 
 1. Find Service Accounts

