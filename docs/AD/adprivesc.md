@@ -186,5 +186,5 @@ Get-ADUser -Filter {DoesNotRequirePreAuth -eq $True} -Properties DoesNotRequireP
 Invoke-ASREPRoast -Verbose
 ```
 
-
+---
 

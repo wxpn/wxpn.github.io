@@ -10,4 +10,6 @@ Active Directory is a technology used in Windows environments that allows admini
 - [Enumerating Active Directory](/docs/AD/enumeration.html)
 - [Privilege Escalation AD](/docs/AD/adprivesc.html)
 
+---
+
 [back](/index.html)
