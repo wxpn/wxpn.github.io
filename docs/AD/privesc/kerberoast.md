@@ -58,4 +58,4 @@ Invoke-ASREPRoast -Verbose
 
 ---
 
-[back](../adprivesc.md)
+[back](../)
