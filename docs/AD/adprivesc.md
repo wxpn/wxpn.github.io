@@ -9,6 +9,7 @@ The sections covers the following AD Abuse modules:
 
 - [ACL Abuse](/docs/AD/privesc/acl.html)
 - [Kerberoasting](/docs/AD/privesc/kerberoast.html)
+- [Laps Abuse](/docs/AD/privesc/laps.html)
 
 ---
 
