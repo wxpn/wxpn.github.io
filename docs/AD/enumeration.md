@@ -332,17 +332,17 @@ Get-ForestDomain # Lists all domains within the forest.
 Identifies SQL server instances and checks accessibility.
 
 ### SPN Scanning
-- ```bash 
+```bash 
 Get-SQLInstanceDomain # Finds SQL instances within the domain by scanning SPNs.
 ```
 
 ### Accessibility Check
-- ```bash 
+```bash 
 Get-SQLConnectionTestThreaded # Tests SQL server accessibility for the current user.
 ```
 
 ### Information Gathering
-- ```bash 
+```bash 
 Get-SQLServerInfo # Gathers details on SQL servers, such as accessible accounts and configurations.
 ```
 

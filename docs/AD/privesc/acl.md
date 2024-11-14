@@ -106,4 +106,4 @@ lsadump::dcsync /domain:example.com /user:administrator
 
 ---
 
-[back](../adprivesc.html)
+[back](/docs/AD/adprivesc.html)

@@ -38,4 +38,4 @@ The `Get-AdmPwdPassword` command uses the LAPS module.
 
 ---
 
-[back](../adprivesc.html)
+[back](/docs/AD/adprivesc.html)
