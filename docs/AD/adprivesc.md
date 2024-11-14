@@ -11,6 +11,7 @@ The sections covers the following AD Abuse modules:
 - [Kerberoasting](/docs/AD/privesc/kerberoast.html)
 - [Laps Abuse](/docs/AD/privesc/laps.html)
 - [gMSA Abuse](/docs/AD/privesc/gmsa.html)
+- [Golden gMSA Abuse](/docs/AD/privesc/GoldenGMSA.html)
 
 ---
 
