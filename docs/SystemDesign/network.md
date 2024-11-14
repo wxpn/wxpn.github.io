@@ -1,5 +1,6 @@
 # Network Protocols
 These are formats for communication. The most important ones are IP, TCP and HTTP.
+
 ## IP (Intenet Protocol) Address
 
 The modern internet effectively runs on IP. When a machine(client) in the network interacts with another machine(server) in network, and it sends data to the server. This data is going to be sent as an IP packet. IP Packets are the building blocks of communication between machines over the internet. There are other units beyong ip packets, and ip packets are built up of bytes. Its important to know its structure and it has two machine sections -> **ip header** and **data**.
